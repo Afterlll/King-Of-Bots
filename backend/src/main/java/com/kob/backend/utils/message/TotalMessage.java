@@ -12,4 +12,19 @@ public class TotalMessage {
     public static final String USERNAME_IS_EXISTS = "用户名已存在";
     public static final String USER_REGISTER_SUCCESS = "用户注册成功";
     public static final String USERNAME_NOT_NULL = "用户名不能为空";
+    public static final String BOT_TITLE_IS_NULL = "bot的标题不能为空";
+    public static final String BOT_TITLE_IS_TOO_LONG = "bot的标题长度大于100";
+    public static final String BOT_DESCRIPTION_IS_TOO_LONG = "bot的描述长度大于300";
+    public static final String BOT_CONTENT_IS_NULL = "bot的执行代码不能为空";
+    public static final String BOT_CONTENT_IS_TOO_LONG = "bot的执行代码长度大于10000";
+    public static final String BOT_ADD_SUCCESS = "bot新增成功";
+    public static final String BOT_ADD_FAILED = "bot新增失败";
+    public static final String BOT_DELETE_SUCCESS = "bot删除成功";
+    public static final String BOT_DELETE_FAILED = "即将删除的bot_id非法";
+    public static final String BOT_NOT_EXISTS = "bot不存在或已被删除";
+    public static final String BOT_YOU_CANNOT_DELETE = "您无权限删除该bot";
+    public static final String BOT_UPDATE_SUCCESS = "bot修改成功";
+    public static final String BOT_UPDATE_FAILED = "bot修改失败";
+    public static final String BOT_LIST_GET_FAILED = "bot列表查询失败";
+    public static final String BOT_LIST_GET_SUCCESS = "bot列表查询成功";
 }

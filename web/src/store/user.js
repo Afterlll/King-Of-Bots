@@ -65,7 +65,7 @@ export default {
                 success(resp) {
                     if (resp.message === "获取用户信息成功") {
                         context.commit("updateUser", {
-                            ...resp.data,
+                            ...resp.dat,
                             is_login: true,
                         });
                         data.success(resp);
