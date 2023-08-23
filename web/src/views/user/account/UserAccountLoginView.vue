@@ -11,7 +11,10 @@
                         <label for="password" class="form-label">密码</label>
                         <input v-model="password" type="password" class="form-control" id="password" placeholder="请输入密码">
                     </div>
-                    <div class="error-message">{{ error_message }}</div>
+                    <div class="alert alert-danger" role="alert" v-if="error_message">
+                        {{ error_message }}
+                    </div>
+                    <!-- <div class="error-message">{{ error_message }}</div> -->
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>
             </div>

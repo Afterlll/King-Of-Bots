@@ -15,7 +15,10 @@
                         <label for="confirmedPassword" class="form-label">确认密码</label>
                         <input v-model="confirmedPassword" type="password" class="form-control" id="confirmedPassword" placeholder="请再次输入密码">
                     </div>
-                    <div class="error-message">{{ error_message }}</div>
+                    <div class="alert alert-danger" role="alert" v-if="error_message">
+                        {{ error_message }}
+                    </div>
+                    <!-- <div class="error-message">{{ error_message }}</div> -->
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>
             </div>
