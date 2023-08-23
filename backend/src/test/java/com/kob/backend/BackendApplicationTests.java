@@ -21,7 +21,7 @@ class BackendApplicationTests {
     @Test
     void contextLoads() {
 //        System.out.println(passwordEncoder.encode("123"));
-        System.out.println(passwordEncoder.matches("1234", "$2a$10$Ov5iN5rN2tgl2Ss9hV5D7eeJLBL2d79fzeDaz6Tsvn.focTpEeG3u"));
+//        System.out.println(passwordEncoder.matches("1234", "$2a$10$Ov5iN5rN2tgl2Ss9hV5D7eeJLBL2d79fzeDaz6Tsvn.focTpEeG3u"));
 //        $2a$10$2mgdDZCyB6Zbf4I2V81BW.uLaBcMw4BBxrwS8rdx8.1IMdXG00QIK
 //        $2a$10$Ov5iN5rN2tgl2Ss9hV5D7eeJLBL2d79fzeDaz6Tsvn.focTpEeG3u
         //$2a$10$Ov5iN5rN2tgl2Ss9hV5D7eeJLBL2d79fzeDaz6Tsvn.focTpEeG3u

@@ -1,52 +1,95 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PkIndexView from '../views/pk/PkIndexView.vue'
-import RankListIndexView from '../views/ranklist/RankListIndexView.vue'
-import RecodeIndexView from '../views/record/RecodeIndexView.vue'
-import UserBotIndexView from '../views/user/bot/UserBotIndexView.vue'
-import NotFound from '../views/error/NotFound.vue'
+import PkIndexView from '../views/pk/PkIndexView'
+import RecordIndexView from '../views/record/RecordIndexView'
+import RanklistIndexView from '../views/ranklist/RanklistIndexView'
+import UserBotIndexView from '../views/user/bot/UserBotIndexView'
+import NotFound from '../views/error/NotFound'
+import UserAccountLoginView from '../views/user/account/UserAccountLoginView'
+import UserAccountRegisterView from '../views/user/account/UserAccountRegisterView'
+import store from '../store/index'
 
 const routes = [
-  // 根路径默认跳转到/pk界面
   {
-    path : '/',
-    name : 'home',
-    redirect : '/pk'
+    path: "/",
+    name: "home",
+    redirect: "/pk/",
+    meta: {
+      requestAuth: true,
+    }
   },
   {
-    path: '/pk',
-    name: 'pk_index',
-    component: PkIndexView
+    path: "/pk/",
+    name: "pk_index",
+    component: PkIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
-    path : '/ranklist',
-    name : 'ranklist_index',
-    component : RankListIndexView
+    path: "/record/",
+    name: "record_index",
+    component: RecordIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
-    path : '/recode',
-    name : 'recode_index',
-    component : RecodeIndexView
+    path: "/ranklist/",
+    name: "ranklist_index",
+    component: RanklistIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
-    path : '/user/bot',
-    name : 'user_bot_index',
-    component : UserBotIndexView
+    path: "/user/bot/",
+    name: "user_bot_index",
+    component: UserBotIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
-    path : '/404',
-    name : 'not_found_index',
-    component : NotFound
+    path: "/user/account/login/",
+    name: "user_account_login",
+    component: UserAccountLoginView,
+    meta: {
+      requestAuth: false,
+    }
   },
-  // 其他没有匹配的界面跳转到404界面
   {
-    path : '/:catchAll(.*)',
-    redirect : '/404'
+    path: "/user/account/register/",
+    name: "user_account_register",
+    component: UserAccountRegisterView,
+    meta: {
+      requestAuth: false,
+    }
+  },
+  {
+    path: "/404/",
+    name: "404",
+    component: NotFound,
+    meta: {
+      requestAuth: false,
+    }
+  },
+  {
+    path: "/:catchAll(.*)",
+    redirect: "/404/"
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requestAuth && !store.state.user.is_login) {
+    next({name: "user_account_login"});
+  } else {
+    next();
+  }
 })
 
 export default router
