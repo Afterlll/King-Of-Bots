@@ -26,14 +26,14 @@
                                     <th>{{ bot.createTime }}</th>
                                     <!-- <th>{{ bot.description }}</th> -->
                                     <th>
-                                        <button style="margin-right: 10px;" type="button" class="btn btn-secondary" data-bs-toggle="modal" :data-bs-target="'#update_bot_btn' + bot.id">修改</button>
+                                        <button style="margin-right: 10px;" type="button" class="btn btn-secondary" data-bs-toggle="modal" :data-bs-target="'#update_bot_btn' + bot.id" @click="save_old_bot(bot)">修改</button>
                                         <!-- 修改bot模态框 -->
                                         <div class="modal fade" :id="'update_bot_btn' + bot.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="exampleModalLabel">修改bot</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="reset_bot(bot)"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="mb-3">
@@ -63,7 +63,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary" @click="update_a_bot(bot)">保存修改</button>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="reset_bot(bot)">取消</button>
                                                 </div>
                                                 </div>
                                             </div>
@@ -153,6 +153,11 @@ export default {
             content : '',
             message : ''
         })
+        let oldbot = reactive({
+            title : '',
+            description : '',
+            content : '',
+        })
 
         const refresh_bots = () => {
             $.ajax({
@@ -228,6 +233,21 @@ export default {
             }
         }
 
+        // 保存原来的bot信息
+        const save_old_bot = (bot) => {
+            message.value = ''
+            oldbot.title = bot.title
+            oldbot.description = bot.description
+            oldbot.content = bot.content
+        }
+
+        // 还原bot信息
+        const reset_bot = (bot) => {
+            bot.title = oldbot.title
+            bot.description = oldbot.description
+            bot.content = oldbot.content
+        }
+
         // 修改bot
         const update_a_bot = (bot) => {
             $.ajax({
@@ -247,7 +267,7 @@ export default {
                         Modal.getInstance("#update_bot_btn" + bot.id).hide()
                         refresh_bots();
                     } else {
-                        message = resp.message
+                        message.value = resp.message
                     }
                 },
                 error(resp) {
@@ -260,10 +280,13 @@ export default {
             bots,
             addbot,
             message,
+            oldbot,
             refresh_bots,
             add_a_bot,
             delete_a_bot,
-            update_a_bot
+            update_a_bot,
+            save_old_bot,
+            reset_bot
         }
     }
 }
