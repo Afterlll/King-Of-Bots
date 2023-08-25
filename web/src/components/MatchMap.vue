@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-12 match-btn">
-                <button type="button" class="btn btn-warning" @click="click_match_btn" v-if="match_info === '正在匹配'">{{ match_info }}</button>
+                <button type="button" class="btn btn-warning" @click="click_match_btn" v-if="match_info === '开始匹配'">{{ match_info }}</button>
                 <button type="button" class="btn btn-danger" @click="click_match_btn" v-if="match_info === '取消匹配'">{{ match_info }}</button>
             </div>
         </div>
@@ -32,17 +32,17 @@ import { useStore } from 'vuex'
 export default {
     setup() {
         const store = useStore();
-        let match_info = ref('正在匹配')
+        let match_info = ref('开始匹配')
 
         const click_match_btn = () => {
-            if (match_info.value === '正在匹配') {
+            if (match_info.value === '开始匹配') {
                 match_info.value = '取消匹配'
                 // 通过websocket协议通道发送给后端一个开启匹配的信号
                 store.state.pk.socket.send(JSON.stringify({
                     event : 'start-matching'
                 }))
             } else if (match_info.value === '取消匹配') {
-                match_info.value = '正在匹配'
+                match_info.value = '开始匹配'
                 // 通过websocket协议通道发送给后端一个取消匹配的信号
                 store.state.pk.socket.send(JSON.stringify({
                     event : 'stop-matching'

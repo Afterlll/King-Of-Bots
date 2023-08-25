@@ -37,18 +37,36 @@ export default {
             // 接收后端传递过来的数据
             socket.onmessage = msg => {
                 const data = JSON.parse(msg.data)
-                if (data.event === 'start-matching') {
+                if (data.event === 'start-matching') { // 匹配成功
                     store.commit('updateOpponent', {
                         username : data.opponent_username,
                         photo : data.opponent_photo
                     })
-                }
-                // 匹配成功之后延迟两秒钟跳转到对战页面
-                setTimeout(() => {
-                    store.commit('updateStatus', 'playing')
-                }, 2000);
-                // 匹配成功之后更新地图
-                store.commit('updateGameMap', data.gamemap)
+                    // 匹配成功之后延迟两秒钟跳转到对战页面
+                    setTimeout(() => {
+                        store.commit('updateStatus', 'playing')
+                    }, 200);
+                    // 匹配成功之后更新地图
+                    store.commit('updateGame', data.game)
+                } else if (data.event === 'move') { // 蛇移动
+                    const [snake0, snake1] = store.state.pk.gameObject.snakes // 获取到当前对战的两条蛇对象
+                    snake0.set_direction(data.a_direction) // 设置从后端获取到的蛇下一步方向
+                    snake1.set_direction(data.b_direction)
+                } else if (data.event === 'result') { // 分出结果了
+                    const [snake0, snake1] = store.state.pk.gameObject.snakes // 获取到当前对战的两条蛇对象
+                    console.log(data.loser);
+                    if (data.loser === 'all') {
+                        snake0.status = 'die'
+                        snake1.status = 'die'
+                    } else if (data.loser === 'A') {
+                        snake0.status = 'die'
+                    } else if (data.loser === 'B') {
+                        snake1.status = 'die'
+                    }
+                    store.commit("updateLoser", data.loser)
+                    store.commit("updateEyeDirectionA", data.eye_direction_a)
+                    store.commit("updateEyeDirectionB", data.eye_direction_b)
+                } 
             }
 
         })
