@@ -1,0 +1,16 @@
+server:
+  port: 3000
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kob?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+matchingsystem:
+  player:
+    add: http://127.0.0.1:3001/player/add/
+    remove: http://127.0.0.1:3001/player/remove/
