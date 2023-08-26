@@ -14,10 +14,13 @@ export default {
     setup() {
         const socketUrl = `ws:localhost:3000/websocket/${store.state.user.token}`
 
+        store.commit("updateStatus", "matching");
         store.commit("updateLoser", "none")
+        store.commit("updateIsRecord", false) 
 
         let socket = null
         onMounted(() => {
+
             // 设置默认的对手信息
             store.commit('updateOpponent', {
                 username : '我的对手',

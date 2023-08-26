@@ -27,4 +27,7 @@ public class TotalMessage {
     public static final String BOT_UPDATE_FAILED = "bot修改失败";
     public static final String BOT_LIST_GET_FAILED = "bot列表查询失败";
     public static final String BOT_LIST_GET_SUCCESS = "bot列表查询成功";
+    public static final String RETURN_RECORD_LIST = "对战记录返回成功";
+    public static final String MAX_BOT_NUM = "您最多只可以创建10个bot！";
+    public static final String RETURN_RANK_LIST_LIST = "排行版返回成功";
 }

@@ -1,5 +1,6 @@
 package com.kob.backend.service.impl.user.bot;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.kob.backend.bean.Bot;
 import com.kob.backend.bean.Result;
@@ -8,6 +9,7 @@ import com.kob.backend.mapper.BotMapper;
 import com.kob.backend.service.user.bot.AddService;
 import com.kob.backend.utils.message.TotalMessage;
 import com.kob.backend.utils.user.UserDetailsImpl;
+import lombok.experimental.Tolerate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -62,6 +64,12 @@ public class AddServiceImpl implements AddService{
 
         if (content.length() > 10000) {
             return new Result<>("444", TotalMessage.BOT_CONTENT_IS_TOO_LONG);
+        }
+
+        QueryWrapper<Bot> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", user.getId());
+        if (botMapper.selectCount(queryWrapper) >= 10) {
+            return new Result<>("444", TotalMessage.MAX_BOT_NUM);
         }
 
         Date now = new Date();

@@ -88,6 +88,10 @@ public class WebSocketServer {
         return recordMapper;
     }
 
+    public static UserMapper getUserMapper() {
+        return userMapper;
+    }
+
     public Game getGame() {
         return game;
     }

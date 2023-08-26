@@ -3,6 +3,7 @@ package com.kob.backend.consumer.utils;
 import com.alibaba.fastjson2.JSONObject;
 import com.kob.backend.bean.Bot;
 import com.kob.backend.bean.Record;
+import com.kob.backend.bean.User;
 import com.kob.backend.consumer.WebSocketServer;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -299,8 +300,33 @@ public class Game extends Thread {
         }
     }
 
+    private void updateRating(Player player, Integer rating) {
+        User user = WebSocketServer.getUserMapper().selectById(player.getId());
+        if (user == null) return;
+        user.setRating(rating);
+        System.out.println(user);
+        WebSocketServer.getUserMapper().updateById(user);
+    }
+
     // 将本局的对战记录保存到数据库中
     private void saveToDatabase() {
+        // 计算天梯分
+        if (playerA != null && playerB != null) {
+            Integer ratingA = WebSocketServer.getUserMapper().selectById(playerA.getId()).getRating();
+            Integer ratingB = WebSocketServer.getUserMapper().selectById(playerB.getId()).getRating();
+
+            if ("A".equals(loser)) {
+                ratingA -= 2;
+                ratingB += 5;
+            } else if ("B".equals(loser)) {
+                ratingA += 5;
+                ratingB -= 2;
+            }
+
+            updateRating(playerA, ratingA);
+            updateRating(playerB, ratingB);
+        }
+
         Record record = new Record(
                 null,
                 playerA.getId(),
