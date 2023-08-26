@@ -7,7 +7,7 @@ public interface MatchingServer {
      * @param rating
      * @return
      */
-    String addPlayer(Integer userId, Integer rating);
+    String addPlayer(Integer userId, Integer botId, Integer rating);
 
     /**
      * 删除对手

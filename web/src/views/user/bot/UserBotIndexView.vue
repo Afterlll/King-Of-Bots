@@ -1,8 +1,8 @@
 <template>
     <div class="container" style="margin-top: 20px;">
         <div class="row">
-            <div class="col-3">
-                <img :src="$store.state.user.photo" alt="头像">
+            <div class="col-3 img">
+                <img :src="$store.state.user.photo" alt="头像" style="width: 256px; height : 256px;">
             </div>
             <div class="col-9">
                 <div class="card">

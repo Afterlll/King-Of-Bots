@@ -14,6 +14,8 @@ export default {
     setup() {
         const socketUrl = `ws:localhost:3000/websocket/${store.state.user.token}`
 
+        store.commit("updateLoser", "none")
+
         let socket = null
         onMounted(() => {
             // 设置默认的对手信息

@@ -7,5 +7,5 @@ public interface StartGameService {
      * @param bId
      * @return
      */
-    String startGame(Integer aId, Integer bId);
+    String startGame(Integer aId, Integer aBotId, Integer bId, Integer bBotId);
 }

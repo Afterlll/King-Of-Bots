@@ -1,8 +1,11 @@
 package com.kob.backend.consumer.utils;
 
 import com.alibaba.fastjson2.JSONObject;
+import com.kob.backend.bean.Bot;
 import com.kob.backend.bean.Record;
 import com.kob.backend.consumer.WebSocketServer;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
@@ -23,14 +26,27 @@ public class Game extends Thread {
     private ReentrantLock lock = new ReentrantLock(); // 锁
     private String status = "playing"; // 记录整个游戏的状态 playing -> finished
     private String loser = ""; // all: 都输 A: A输 B: B输
+    private static final String ADD_BOT_URL = "http://127.0.0.1:3002/bot/add/";
 
-    public Game(Integer rows, Integer cols, Integer inner_walls_count, Integer idA, Integer idB) {
+    public Game(Integer rows, Integer cols, Integer inner_walls_count, Integer idA, Bot botA, Integer idB, Bot botB) {
         this.rows = rows;
         this.cols = cols;
         this.inner_walls_count = inner_walls_count;
         this.g = new int[rows][cols]; // 每次构造的时候新开一个空间存储地图
-        playerA = new Player(idA, rows - 2, 1, new ArrayList<>());
-        playerB = new Player(idB, 1, cols - 2, new ArrayList<>());
+
+        Integer botIdA = -1, botIdB = -1;
+        String botCodeA = "", botCodeB = "";
+        if (botA != null) {
+            botIdA = botA.getId();
+            botCodeA = botA.getContent();
+        }
+        if (botB != null) {
+            botIdB = botB.getId();
+            botCodeB = botB.getContent();
+        }
+
+        playerA = new Player(idA, botIdA, botCodeA, rows - 2, 1, new ArrayList<>());
+        playerB = new Player(idB, botIdB, botCodeB, 1, cols - 2, new ArrayList<>());
     }
 
     public Player getPlayerA() {
@@ -133,6 +149,45 @@ public class Game extends Thread {
         }
     }
 
+    /**
+     * 将当前的局面信息转换为字符串
+     * 格式：地图#我的起点横坐标#我的起点纵坐标#我的操作#对手的起点横坐标#对手的起点纵坐标#对手的操作
+     * @param player
+     * @return
+     */
+    private String getInput(Player player) {
+        // 分清敌我
+        Player me, you;
+        if (playerA.getId().equals(player.getId())) {
+            me = playerA;
+            you = playerB;
+        } else {
+            me = playerB;
+            you = playerA;
+        }
+
+        return getMapString() + "#" +
+                me.getSx() + "#" +
+                me.getSy() + "#(" +
+                me.getStepsString() + ")#" +
+                you.getSx() + "#" +
+                you.getSy() + "#(" +
+                you.getStepsString() + ")";
+    }
+
+    /**
+     * 此时是AI进行游戏，发送给Bot代码执行的微服务
+     * @param player
+     */
+    private void sendBotCode(Player player) {
+        if (player.getBotId().equals(-1)) return; // 人工操作，return
+        MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
+        data.add("user_id", player.getId().toString());
+        data.add("bot_code", player.getBotCode());
+        data.add("input", getInput(player));
+        WebSocketServer.restTemplate.postForObject(ADD_BOT_URL, data, String.class);
+    }
+
     // 等待两名玩家的下一步操作，当后端接收到两个client传过来的下一步操作之后才返回结果给前端
     private boolean nextStep() {
         // 由于前端每秒钟走五个格子，为了防止后端读取到下一步的操作过快而覆盖前面的操作，因此需要让后端至少睡眠一个格子的时间
@@ -141,6 +196,10 @@ public class Game extends Thread {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        // 下一步操作是人还是AI
+        sendBotCode(playerA);
+        sendBotCode(playerB);
 
         // 五秒钟内双方（一方）没有输入时，就是双方（一方）输了
         for (int i = 0; i < 50; i++) {

@@ -15,6 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Player {
     private Integer id; // 玩家id
+    private Integer botId; // -1表示亲自出马，否则AI
+    private String botCode;
     private Integer sx; // 玩家起点的横坐标
     private Integer sy; // 玩家七点的纵坐标
     private List<Integer> steps; // 玩家蛇的移动方向
