@@ -8,10 +8,14 @@ export default {
         token: "",
         is_login: false,
         pulling_info: true,  // 是否正在从云端拉取信息
+        position : 'none', // 您的位置
     },
     getters: {
     },
     mutations: {
+        updatePosition(state, position) {
+            state.position = position
+        },
         updateUser(state, user) {
             state.id = user.id;
             state.username = user.username;

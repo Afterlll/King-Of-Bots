@@ -57,6 +57,9 @@ export default {
         ContentField
     },
     setup() {
+
+        store.commit("updateLoser", "none")
+
         let current_page = 1
         let records = ref([])
         let pages = ref([])
@@ -146,6 +149,10 @@ export default {
                     store.commit("updateSteps", {
                         a_steps: record.record.asteps,
                         b_steps: record.record.bsteps,
+                    });
+                    store.commit("updatePosition", {
+                        a_position: record.record.aid,
+                        b_position: record.record.bid,
                     });
                     store.commit("updateRecordLoser", record.record.loser);
                     router.push({

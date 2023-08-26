@@ -113,4 +113,5 @@ img.record-user-photo {
     width: 4vh;
     border-radius: 50%;
 }
+
 </style>

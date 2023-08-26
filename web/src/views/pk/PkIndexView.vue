@@ -17,6 +17,7 @@ export default {
         store.commit("updateStatus", "matching");
         store.commit("updateLoser", "none")
         store.commit("updateIsRecord", false) 
+        store.commit('updatePosition', 'none')
 
         let socket = null
         onMounted(() => {
@@ -53,6 +54,11 @@ export default {
                     }, 200);
                     // 匹配成功之后更新地图
                     store.commit('updateGame', data.game)
+                    if (store.state.pk.a_id === store.state.user.id) {
+                        store.commit('updatePosition', '左下角')
+                    } else {
+                        store.commit('updatePosition', '右上角')
+                    }
                 } else if (data.event === 'move') { // 蛇移动
                     const [snake0, snake1] = store.state.pk.gameObject.snakes // 获取到当前对战的两条蛇对象
                     snake0.set_direction(data.a_direction) // 设置从后端获取到的蛇下一步方向
@@ -90,4 +96,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

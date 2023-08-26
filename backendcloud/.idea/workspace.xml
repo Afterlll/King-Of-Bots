@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="975a07b4-58ff-4cf7-848c-b4fa9abbbd11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/WebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/utils/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/utils/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/RecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/record/RecordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/RecordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/record/RecordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/user/bot/AddServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/user/bot/AddServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/utils/message/TotalMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/utils/message/TotalMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/src/components/PlayGround.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/components/PlayGround.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/src/store/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/store/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/src/views/pk/PkIndexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/views/pk/PkIndexView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/src/views/ranklist/RankListIndexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/views/ranklist/RankListIndexView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +171,7 @@
       <updated>1692959916660</updated>
       <workItem from="1692959919015" duration="822000" />
       <workItem from="1692960777030" duration="756000" />
-      <workItem from="1692961544944" duration="33014000" />
+      <workItem from="1692961544944" duration="34923000" />
     </task>
     <servers />
   </component>
