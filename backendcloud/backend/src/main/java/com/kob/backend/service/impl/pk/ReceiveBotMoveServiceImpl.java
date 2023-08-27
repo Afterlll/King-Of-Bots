@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 public class ReceiveBotMoveServiceImpl implements ReceiveBotMoveService {
     @Override
     public String receiveBotMove(Integer userId, Integer direction) {
-        System.out.println("receive bot move " + userId + " " + direction);
         // 将3000服务器获取到的下一步信息传递给next_step下一步执行
         if (WebSocketServer.users.get(userId) != null) {
             Game game = WebSocketServer.users.get(userId).getGame();

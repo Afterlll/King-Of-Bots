@@ -5,11 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="975a07b4-58ff-4cf7-848c-b4fa9abbbd11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../web/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/utils/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/consumer/utils/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/ranklist/RankListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/ranklist/RankListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/record/RecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/record/RecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/account/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/account/InfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/account/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/account/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/account/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/account/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/AddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/DeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/GetListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/GetListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/controller/user/bot/UpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/pk/ReceiveBotMoveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/pk/ReceiveBotMoveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/pk/StartGameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kob/backend/service/impl/pk/StartGameServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/kob/backend/BackendApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/kob/backend/PasswordTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/kob/backend/StringUtilsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/botrunningsystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/botrunningsystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botrunningsystem/src/main/java/com/kob/botrunningsystem/service/impl/BotRunningServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/botrunningsystem/src/main/java/com/kob/botrunningsystem/service/impl/BotRunningServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botrunningsystem/src/main/java/com/kob/botrunningsystem/service/impl/utils/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/botrunningsystem/src/main/java/com/kob/botrunningsystem/service/impl/utils/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botrunningsystem/src/main/java/com/kob/botrunningsystem/utils/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/botrunningsystem/src/main/java/com/kob/botrunningsystem/utils/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matchingsystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/matchingsystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matchingsystem/src/main/java/com/kob/mathcingsystem/service/impl/MatchingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/matchingsystem/src/main/java/com/kob/mathcingsystem/service/impl/MatchingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matchingsystem/src/main/java/com/kob/mathcingsystem/service/impl/utils/MatchingPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/matchingsystem/src/main/java/com/kob/mathcingsystem/service/impl/utils/MatchingPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/src/components/PlayGround.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/components/PlayGround.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/src/store/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/store/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/src/views/pk/PkIndexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/views/pk/PkIndexView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/src/views/ranklist/RankListIndexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/views/ranklist/RankListIndexView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +88,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "configurable.group.build",
     "spring.configuration.checksum": "103e67cdf0776c136623318e50b638d4",
     "vue.rearranger.settings.migration": "true"
@@ -86,12 +112,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BackendApplication">
-    <configuration name="Consumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.kob.botrunningsystem.service.impl.utils.Consumer" />
+    <configuration name="Bot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kob.botrunningsystem.utils.Bot" />
       <module name="botrunningsystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.kob.botrunningsystem.service.impl.utils.*" />
+          <option name="PATTERN" value="com.kob.botrunningsystem.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,12 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatchingPool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.kob.mathcingsystem.service.impl.utils.MatchingPool" />
-      <module name="matchingsystem" />
+    <configuration name="Consumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kob.botrunningsystem.service.impl.utils.Consumer" />
+      <module name="botrunningsystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.kob.mathcingsystem.service.impl.utils.*" />
+          <option name="PATTERN" value="com.kob.botrunningsystem.service.impl.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,8 +182,8 @@
         <item itemvalue="Spring Boot.BackendApplication" />
         <item itemvalue="Spring Boot.MatchingSystemApplication3001" />
         <item itemvalue="Spring Boot.BotRunningSystemMain3002" />
+        <item itemvalue="Application.Bot" />
         <item itemvalue="Application.Consumer" />
-        <item itemvalue="Application.MatchingPool" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +197,7 @@
       <updated>1692959916660</updated>
       <workItem from="1692959919015" duration="822000" />
       <workItem from="1692960777030" duration="756000" />
-      <workItem from="1692961544944" duration="34923000" />
+      <workItem from="1692961544944" duration="40358000" />
     </task>
     <servers />
   </component>

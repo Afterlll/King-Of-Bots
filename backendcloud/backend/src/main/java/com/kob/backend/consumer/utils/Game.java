@@ -304,7 +304,6 @@ public class Game extends Thread {
         User user = WebSocketServer.getUserMapper().selectById(player.getId());
         if (user == null) return;
         user.setRating(rating);
-        System.out.println(user);
         WebSocketServer.getUserMapper().updateById(user);
     }
 

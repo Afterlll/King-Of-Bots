@@ -14,7 +14,7 @@ public class GetListController {
     @Resource
     private GetListService getListService;
 
-    @GetMapping("/user/bot/getlist/")
+    @GetMapping("/api/user/bot/getlist/")
     public Result<Bot> getList() {
         return getListService.getList();
     }

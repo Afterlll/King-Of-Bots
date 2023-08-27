@@ -5,7 +5,7 @@
         <RecordBoard v-if="$store.state.pk.loser !== 'none'"/>
 
         <div class="position" v-if="$store.state.user.position !== 'none' && $store.state.record.is_record === false">
-            <div>您的位置: {{ $store.state.user.position }}</div>
+            <div>您的位置 {{ $store.state.user.position }}</div>
         </div>
 
         <div class="position-record" v-if="$store.state.record.is_record === true">
@@ -40,12 +40,14 @@ div.playground {
 div.position {
     position: absolute;
     background-color: rgba(50, 50, 50, 0.5);
-    width: 120px;
-    height: 28px;
+    width: 150px;
+    height: 100px;
     top: 95px;
     left: 50px;
     z-index: 999;
     color: white;
+    font-weight: 600;
+    font-size: 32px;
     font-style: italic;
     text-align: center;
     display: flex;
@@ -59,6 +61,7 @@ div.position-record {
     left: 50px;
     z-index: 999;
     color: white;
+    font-weight: 600;
     font-style: italic;
     text-align: center;
     display: flex;

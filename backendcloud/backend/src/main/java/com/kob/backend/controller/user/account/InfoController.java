@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/user/account/")
+@RequestMapping("/api/user/account/")
 public class InfoController {
 
     @Resource

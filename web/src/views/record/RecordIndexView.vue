@@ -93,7 +93,7 @@ export default {
         const pull_records = page => {
             current_page = page
             $.ajax({
-                url: "http://127.0.0.1:3000/record/getList/",
+                url: "https://app5765.acapp.acwing.com.cn/api/record/getList/",
                 type: "get",
                 data : {
                     page

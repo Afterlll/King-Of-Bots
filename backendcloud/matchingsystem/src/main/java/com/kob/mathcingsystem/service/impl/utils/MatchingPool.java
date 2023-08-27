@@ -91,7 +91,6 @@ public class MatchingPool extends Thread {
     // 等待时间长的玩家优先进行匹配
     // 由于存储所有玩家的是list集合，因此下标小的等待时间一定更长
     private void matchPlayers() {
-        System.out.println("match players: " + players.toString());
         boolean[] used = new boolean[players.size()]; // 当前玩家是否匹配
         for (int i = 0; i < players.size(); i++) {
             if (used[i]) continue;
@@ -127,7 +126,6 @@ public class MatchingPool extends Thread {
 
     // 返回匹配结果
     private void sendResult(Player a, Player b) {
-        System.out.println("send result: " + a + " " + b);
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("a_id", a.getUserId().toString());
         data.add("a_bot_id", a.getBotId().toString());

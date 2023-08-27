@@ -190,7 +190,6 @@ public class WebSocketServer {
      * 开始匹配
      */
     private void startMatch(String bot_id) {
-        System.out.println("start matching");
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("user_id", user.getId().toString());
         data.add("rating", user.getRating().toString());
@@ -202,7 +201,6 @@ public class WebSocketServer {
      * 取消匹配
      */
     private void stopMatch() {
-        System.out.println("stop matching");
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("user_id", user.getId().toString());
         restTemplate.postForObject(REMOVE_PLAYER_URL, data, String.class);

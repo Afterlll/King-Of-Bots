@@ -11,14 +11,12 @@ public class MatchingServiceImpl implements MatchingServer {
 
     @Override
     public String addPlayer(Integer userId, Integer botId, Integer rating) {
-        System.out.println("add player: " + userId + " " + botId + " " + rating);
         matchingPool.addPlayer(userId, botId, rating);
         return "add player success";
     }
 
     @Override
     public String removePlayer(Integer userId) {
-        System.out.println("remove player: " + userId);
         matchingPool.removePlayer(userId);
         return "remove player success";
     }

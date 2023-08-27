@@ -16,7 +16,7 @@ public class AddController {
     @Resource
     private AddService addService;
 
-    @PostMapping("/user/bot/add/")
+    @PostMapping("/api/user/bot/add/")
     public Result<Bot> add(@RequestParam Map<String, String> map) {
         return addService.insert(map);
     }
