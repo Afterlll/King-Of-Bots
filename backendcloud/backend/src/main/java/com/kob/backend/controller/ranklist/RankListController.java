@@ -14,7 +14,7 @@ public class RankListController {
     @Resource
     private RankListService rankListService;
 
-    @GetMapping("/rankList/getList/")
+    @GetMapping("/api/rankList/getList/")
     public Result getList(@RequestParam Map<String, String> data) {
         Integer page = Integer.parseInt(data.get("page"));
         return rankListService.getList(page);

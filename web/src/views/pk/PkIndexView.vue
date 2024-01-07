@@ -12,7 +12,7 @@ export default {
         PlayGround
     },
     setup() {
-        const socketUrl = `ws:localhost:3000/websocket/${store.state.user.token}`
+        const socketUrl = `wss://app5765.acapp.acwing.com.cn/websocket/${store.state.user.token}`
 
         store.commit("updateStatus", "matching");
         store.commit("updateLoser", "none")

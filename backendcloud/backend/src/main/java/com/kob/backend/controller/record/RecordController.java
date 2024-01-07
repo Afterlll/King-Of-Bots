@@ -17,7 +17,7 @@ public class RecordController {
     @Resource
     private RecordService recordService;
 
-    @GetMapping("/record/getList/")
+    @GetMapping("/api/record/getList/")
     public Result<Record> getList(@RequestParam Map<String, String> data) {
         int page = Integer.parseInt(Objects.requireNonNull(data.get("page")));
         return recordService.getList(page);

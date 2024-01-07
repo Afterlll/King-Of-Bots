@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/user/account/")
 public class InfoController {
 
     @Resource
     private InfoService infoService;
 
-    @GetMapping("info/")
+    @GetMapping("/api/user/account/info/")
     public Result<User> getInfo() {
         return infoService.getInfo();
     }

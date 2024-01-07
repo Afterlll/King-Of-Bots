@@ -4,11 +4,11 @@
         <MatchMap v-if="$store.state.pk.status === 'matching'" />
         <RecordBoard v-if="$store.state.pk.loser !== 'none'"/>
 
-        <div class="position" v-if="$store.state.user.position !== 'none' && $store.state.record.is_record === false">
+        <div class="position" v-if="$store.state.pk.status === 'playing' && $store.state.user.position !== 'none' && $store.state.record.is_record === false">
             <div>您的位置: {{ $store.state.user.position }}</div>
         </div>
 
-        <div class="position-record" v-if="$store.state.record.is_record === true">
+        <div class="position-record" v-if="$store.state.pk.status === 'playing' && $store.state.record.is_record === true">
             玩家A: 左下角<br>
             玩家B: 右上角<br>
         </div>
@@ -40,8 +40,9 @@ div.playground {
 div.position {
     position: absolute;
     background-color: rgba(50, 50, 50, 0.5);
-    width: 120px;
+    width: 130px;
     height: 28px;
+    font-weight: 600;
     top: 95px;
     left: 50px;
     z-index: 999;
@@ -55,6 +56,7 @@ div.position-record {
     background-color: rgba(50, 50, 50, 0.5);
     width: 110px;
     height: 50px;
+    font-weight: 600;
     top: 95px;
     left: 50px;
     z-index: 999;

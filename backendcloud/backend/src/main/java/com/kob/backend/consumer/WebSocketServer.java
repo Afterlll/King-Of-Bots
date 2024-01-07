@@ -96,32 +96,32 @@ public class WebSocketServer {
         return game;
     }
 
-    /**
-     * 建立连接
-     * @param session
-     * @param token
-     */
-    @OnOpen
-    public void onOpen(Session session, @PathParam("token") String token) {
-        try {
+/**
+ * 建立连接
+ * @param session
+ * @param token
+ */
+@OnOpen
+public void onOpen(Session session, @PathParam("token") String token) {
+    try {
 
-            // 维护此次session
-            this.session = session;
-            // 解析出jwt-token中的userId（先直接使用userId）
-            int userId = JwtAuthorizationUtil.getUserId(token);
-            // 绑定用户
-            this.user = userMapper.selectOne(new QueryWrapper<User>().eq("id", userId));
-            if (this.user != null) {
-                // 增加映射
-                users.put(userId, this);
-            } else {
-                this.session.close();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        // 维护此次session
+        this.session = session;
+        // 解析出jwt-token中的userId（先直接使用userId）
+        int userId = JwtAuthorizationUtil.getUserId(token);
+        // 绑定用户
+        this.user = userMapper.selectOne(new QueryWrapper<User>().eq("id", userId));
+        if (this.user != null) {
+            // 增加映射
+            users.put(userId, this);
+        } else {
+            this.session.close();
         }
+
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
 
     /**
      * 关闭链接

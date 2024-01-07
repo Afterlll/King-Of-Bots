@@ -16,7 +16,7 @@ public class DeleteController {
     @Resource
     private DeleteService deleteService;
 
-    @PostMapping("/user/bot/remove/")
+    @PostMapping("/api/user/bot/remove/")
     public Result delete(@RequestParam Map<String, String> map) {
         return deleteService.delete(map);
     }

@@ -161,7 +161,7 @@ export default {
 
         const refresh_bots = () => {
             $.ajax({
-                url : 'http://localhost:3000/user/bot/getlist/',
+                url : 'https://app5765.acapp.acwing.com.cn/api/user/bot/getlist/',
                 type : 'get',
                 headers : {
                     Authorization : 'Bearer ' + store.state.user.token
@@ -181,7 +181,7 @@ export default {
         // 增加bot
         const add_a_bot = () => {
             $.ajax({
-                url : 'http://localhost:3000/user/bot/add/',
+                url : 'https://app5765.acapp.acwing.com.cn/api/user/bot/add/',
                 type : 'post',
                 headers : {
                     Authorization : 'Bearer ' + store.state.user.token
@@ -213,7 +213,7 @@ export default {
         const delete_a_bot = (botId) => {
             if (window.confirm("您确认删除吗？")) {
                 $.ajax({
-                    url : 'http://localhost:3000/user/bot/remove/',
+                    url : 'https://app5765.acapp.acwing.com.cn/api:3000/user/bot/remove/',
                     type : 'post',
                     headers : {
                         Authorization : 'Bearer ' + store.state.user.token
@@ -251,7 +251,7 @@ export default {
         // 修改bot
         const update_a_bot = (bot) => {
             $.ajax({
-                url : 'http://localhost:3000/user/bot/update/',
+                url : 'https://app5765.acapp.acwing.com.cn/api:3000/user/bot/update/',
                 type : 'post',
                 headers : {
                     Authorization : 'Bearer ' + store.state.user.token

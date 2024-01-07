@@ -16,7 +16,7 @@ public class UpdateController {
     @Resource
     private UpdateService updateService;
 
-    @PostMapping("/user/bot/update/")
+    @PostMapping("/api/user/bot/update/")
     public Result<Bot> update(@RequestParam Map<String, String> map) {
         return updateService.update(map);
     }

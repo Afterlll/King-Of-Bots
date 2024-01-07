@@ -12,13 +12,12 @@ import javax.annotation.Resource;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user/account/")
 public class RegisterController {
 
     @Resource
     private RegisterService registerService;
 
-    @PostMapping("register/")
+    @PostMapping("/api/user/account/register/")
     public Result<User> register(@RequestParam Map<String, String> map) {
         String username = map.get("username");
         String password = map.get("password");
